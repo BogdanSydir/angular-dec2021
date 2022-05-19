@@ -11,6 +11,7 @@ const routes: Routes = [
       {path: 'users', loadChildren: () => import('./modules').then(value => value.UserModule)},
       {path: 'posts', loadChildren: () => import('./modules').then(value => value.PostModule)},
       {path: 'comments', loadChildren: () => import('./modules').then(value => value.CommentModule)},
+      {path: 'todos', loadChildren: () => import('./modules').then(value => value.TodoModule)}
     ]
   }
 ]
