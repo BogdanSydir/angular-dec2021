@@ -1,1 +1,2 @@
-<p>car works!</p>
+<div>{{car.id}} - {{car.model}} - {{car.price}} - {{car.year}}</div>
+<button *ngIf="car.id" (click)="delete(car.id)">delete</button>
