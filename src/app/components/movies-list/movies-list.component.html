@@ -3,6 +3,7 @@
     <app-genre-badge></app-genre-badge>
   </div>
   <div class="movies">
+    <button (click)="next()">page 2</button>
     <app-movies-list-card *ngFor="let movie of movies" [movie]="movie"></app-movies-list-card>
   </div>
 </div>
