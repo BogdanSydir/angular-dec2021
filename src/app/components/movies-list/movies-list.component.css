@@ -1,0 +1,13 @@
+.movies_page{
+  display: flex;
+
+}
+.genres{
+  width: 150px;
+  background: aqua;
+}
+.movies{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

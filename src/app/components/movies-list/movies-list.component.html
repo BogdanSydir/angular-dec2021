@@ -1,2 +1,8 @@
-<app-movies-list-card *ngFor="let movie of movies" [movie]="movie"></app-movies-list-card>
-<!--<div>{{movies|json}}</div>-->
+<div class="movies_page">
+  <div class="genres">
+    <app-genre-badge></app-genre-badge>
+  </div>
+  <div class="movies">
+    <app-movies-list-card *ngFor="let movie of movies" [movie]="movie"></app-movies-list-card>
+  </div>
+</div>

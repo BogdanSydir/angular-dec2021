@@ -14,7 +14,7 @@ export class GenreBadgeComponent implements OnInit {
   constructor(private genreService:GenreService) { }
 
   ngOnInit(): void {
-    this.genreService.getAll().subscribe(value => this.genres = value)
+    this.genreService.getAll().subscribe(value => this.genres = value.genres)
   }
 
 }
