@@ -1,4 +1,7 @@
 <div class="movie">
-  <div><img src="https://image.tmdb.org/t/p/w300{{movie.backdrop_path}}" alt="No image for {{movie.backdrop_path}}"></div>
+  <a [routerLink]="'/movie/' + [movie.id]" class="movie_img">
+    <img src="https://image.tmdb.org/t/p/w300{{movie.backdrop_path}}" alt="No image">
+  </a>
   <div>{{movie.original_title}}</div>
+  <div>Average vote: {{movie.vote_average}}</div>
 </div>

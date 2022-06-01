@@ -1,4 +1,7 @@
 .movie{
   margin: 0 10px 5px 10px;
-  max-width: 300px;
+  width: 300px;
+}
+.movie_img{
+  height: 172px;
 }

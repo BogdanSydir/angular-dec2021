@@ -7,8 +7,11 @@
   </div>
     <div>
       <button (click)="next()" *ngIf="page != 500">next page</button>
-      <p>
+      <p *ngIf="!query">
         Current page: {{page}}
+      </p>
+      <p *ngIf="query">
+        Current page: {{query}}
       </p>
       <button (click)="prev()" *ngIf="page != 1">prev page</button>
     </div>
