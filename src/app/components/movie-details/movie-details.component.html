@@ -1,0 +1,19 @@
+<div *ngIf="movie" class="movie_details">
+  <h1>{{movie.original_title}}</h1>
+  <img class="movie_img" src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="Image is not found">
+  <h2>{{movie.overview}}</h2>
+  <h3>Budget: {{movie.budget}}$</h3>
+  <div class="genres">
+    <div class="genre" *ngFor="let genre of movie.genres">{{genre.name}}</div>
+  </div>
+  <h3>Released: {{movie.release_date}}
+    <br>
+  By:</h3>
+
+  <h4 *ngFor="let companies of movie.production_companies">{{companies.name}}
+    <img class="company_img" src="https://image.tmdb.org/t/p/original{{companies.logo_path}}" alt="company_img">
+  </h4>
+  <h3>Average vote: {{movie.vote_average}}/10</h3>
+  <a href="{{movie.homepage}}">{{movie.homepage}}</a>
+  <a [routerLink]="['']">Return</a>
+</div>

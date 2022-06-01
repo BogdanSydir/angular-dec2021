@@ -3,13 +3,15 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {MainLayoutComponent} from "./layouts/main-layout/main-layout.component";
 import {MoviesListComponent} from "./components/movies-list/movies-list.component";
+import {MovieDetailsComponent} from "./components/movie-details/movie-details.component";
 
 const routes: Routes = [
   {
     path:'', component:MainLayoutComponent,
     children:[
       {path: '', redirectTo: 'discover/movie', pathMatch:'full'},
-      {path: 'discover/movie', component: MoviesListComponent}
+      {path: 'discover/movie', component: MoviesListComponent},
+      {path:'movie/:id', component: MovieDetailsComponent}
     ]
   }
 ]

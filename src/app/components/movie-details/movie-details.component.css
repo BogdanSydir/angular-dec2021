@@ -1,0 +1,22 @@
+.movie_details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 100px 0 100px;
+}
+.movie_img{
+  max-width: 880px;
+}
+.genres{
+  display: flex;
+}
+.genre{
+  margin-right: 20px;
+  font-size: 18px;
+}
+.company_img{
+  width: 50px;
+}
+h4{
+  margin: 0;
+}

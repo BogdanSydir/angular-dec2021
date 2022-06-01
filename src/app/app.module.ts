@@ -11,6 +11,8 @@ import {GenreBadgeComponent} from './components/genre-badge/genre-badge.componen
 import {MainLayoutComponent} from './layouts/main-layout/main-layout.component';
 import {MainInterceptor} from "./main.interceptor";
 import { SingleGenreComponent } from './components/single-genre/single-genre.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { MovieDetaisGenresComponent } from './components/movie-detais-genres/movie-detais-genres.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { SingleGenreComponent } from './components/single-genre/single-genre.com
     MoviesListCardComponent,
     GenreBadgeComponent,
     MainLayoutComponent,
-    SingleGenreComponent
+    SingleGenreComponent,
+    MovieDetailsComponent,
+    MovieDetaisGenresComponent
   ],
   imports: [
     BrowserModule,
