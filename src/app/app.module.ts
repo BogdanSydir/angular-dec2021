@@ -13,6 +13,7 @@ import {MainInterceptor} from "./main.interceptor";
 import { SingleGenreComponent } from './components/single-genre/single-genre.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieDetaisGenresComponent } from './components/movie-detais-genres/movie-detais-genres.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MovieDetaisGenresComponent } from './components/movie-detais-genres/mov
     MainLayoutComponent,
     SingleGenreComponent,
     MovieDetailsComponent,
-    MovieDetaisGenresComponent
+    MovieDetaisGenresComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

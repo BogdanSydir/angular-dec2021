@@ -1,10 +1,6 @@
 <div [ngClass]="{darkTheme:dark}">
-<app-header></app-header>
 
-<label class="switch">
-  <input type="checkbox" (change)="setDarkTheme()">
-  <span>Set dark theme</span>
-</label>
+  <app-header (setDarkEmitter)="catchTheme($event)"></app-header>
 
   <router-outlet></router-outlet>
 </div>
