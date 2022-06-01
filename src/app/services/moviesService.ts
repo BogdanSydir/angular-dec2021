@@ -2,19 +2,27 @@ import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {urls} from "../constants";
-import {ActivatedRoute} from "@angular/router";
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 
-export class MoviesService{
+export class MoviesService {
 
-  constructor(private httpClient:HttpClient, private activatedRoute:ActivatedRoute) {
+  // page: number = '1'
+
+  constructor(private httpClient: HttpClient) {
   }
-//todo
-  getAll(): Observable<any>{
-    console.log(this.activatedRoute.queryParams);
-    return this.httpClient.get<any>(urls.movies)
+
+  getAll(): Observable<any> {
+    return this.httpClient.get<any>(`${urls.movies}`)
+  }
+
+  getAllByParams(page:number): Observable<any> {
+    // this.activatedRoute.queryParams.subscribe(params => {
+    //   this.page = params['page']
+    // })
+    console.log(page);
+    return this.httpClient.get<any>(`${urls.movies}?page=${page}`)
   }
 }

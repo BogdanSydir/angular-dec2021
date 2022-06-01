@@ -3,7 +3,13 @@
     <app-genre-badge></app-genre-badge>
   </div>
   <div class="movies">
-    <button (click)="next()">page 2</button>
     <app-movies-list-card *ngFor="let movie of movies" [movie]="movie"></app-movies-list-card>
   </div>
+    <div>
+      <button (click)="next()" *ngIf="page != 500">next page</button>
+      <p>
+        Current page: {{page}}
+      </p>
+      <button (click)="prev()" *ngIf="page != 1">prev page</button>
+    </div>
 </div>
