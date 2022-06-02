@@ -5,16 +5,11 @@
   <div class="movies">
     <app-movies-list-card *ngFor="let movie of movies" [movie]="movie"></app-movies-list-card>
   </div>
-    <div>
-      <button (click)="next()" *ngIf="page != 500">next page</button>
-      <p *ngIf="!query">
-        Current page: {{page}}
-      </p>
-      <p *ngIf="query">
+    <div class="pages">
+      <button (click)="next()" *ngIf="query != 500">next page</button>
+      <p>
         Current page: {{query}}
       </p>
-      <button (click)="prev()" *ngIf="page != 1">prev page</button>
-
-
+      <button (click)="prev()" *ngIf="query != 1">prev page</button>
     </div>
 </div>

@@ -1,13 +1,16 @@
 .movies_page{
   display: flex;
-
 }
 .genres{
-  width: 150px;
   background: aqua;
+  width: 15%;
 }
 .movies{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 80%
+}
+.pages{
+  background: greenyellow;
 }

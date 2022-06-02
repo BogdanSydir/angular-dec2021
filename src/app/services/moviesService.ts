@@ -10,8 +10,6 @@ import {IMovieDetails} from "../interfaces";
 
 export class MoviesService {
 
-  // page: number = '1'
-
   constructor(private httpClient: HttpClient) {
   }
 
@@ -19,12 +17,13 @@ export class MoviesService {
     return this.httpClient.get<any>(`${urls.movies}`)
   }
 
-  getAllByParams(page:number): Observable<any> {
-    // this.activatedRoute.queryParams.subscribe(params => {
-    //   this.page = params['page']
-    // })
-    console.log(page);
+  getAllByParams(page:number, genres?:string | null): Observable<any> {
+    if(!genres){
     return this.httpClient.get<any>(`${urls.movies}?page=${page}`)
+    } else {
+      return this.httpClient.get<any>(`${urls.movies}?page=${page}&with_genres=${genres}`)
+    }
+
   }
 
   getById(id:number): Observable<IMovieDetails>{

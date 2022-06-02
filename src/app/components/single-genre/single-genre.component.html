@@ -1,1 +1,7 @@
-<div>{{genre.name}}</div>
+<div>
+  <label class="switch">
+    <input type="checkbox" (change)="pushToGenres()">
+    <span></span>
+  </label>
+  {{genre.name}}
+</div>
