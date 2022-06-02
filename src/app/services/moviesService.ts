@@ -13,11 +13,11 @@ export class MoviesService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAll(): Observable<any> {
-    return this.httpClient.get<any>(`${urls.movies}`)
-  }
+  // getAll(): Observable<any> {
+  //   return this.httpClient.get<any>(`${urls.movies}`)
+  // }
 
-  getAllByParams(page:number, genres?:string | null): Observable<any> {
+  getAllByParams(page:number, genres?:string): Observable<any> {
     if(!genres){
     return this.httpClient.get<any>(`${urls.movies}?page=${page}`)
     } else {
