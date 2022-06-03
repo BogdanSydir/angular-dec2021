@@ -1,0 +1,8 @@
+.user{
+  display: flex;
+  align-items: center;
+}
+.user_image{
+  height: 40px;
+  margin-right: 10px;
+}
