@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+
 import {IMovie} from "../../interfaces";
 import {MoviesService} from "../../services";
-import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
 
 @Component({
@@ -12,13 +13,9 @@ import {DataService} from "../../services/data.service";
 export class MoviesListComponent implements OnInit {
 
   movies: IMovie[]
-
   query: number = 1
-
   genres: string[] = []
-
   curr_page: number = 1
-
   total_pages: number
 
   constructor(private dataService: DataService, private moviesService: MoviesService, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -40,7 +37,6 @@ export class MoviesListComponent implements OnInit {
         if (this.genres.length === 0){ // якщо зняти галочки з усіх жанрів, з урли зникають парамси
           this.router.navigate([''])
         }
-        console.log(this.genres)
       }
     })
 
@@ -48,22 +44,20 @@ export class MoviesListComponent implements OnInit {
 
       if (!value['page'] && !value['with_genres']) { //якщо в урлі нічого немає то робимо запит
         this.moviesService.getAllByParams(1).subscribe(movies => {
+
           this.movies = movies.results
           this.total_pages = movies.total_pages
-          console.log('нема ні жанру ні сторінки')
-
           this.query = 1
         })
       } else if (!value['page']){ //якщо тільки масив жанрів
 
         this.moviesService.getAllByParams(1, value['with_genres']).subscribe(movies => {
+
           this.movies = movies.results
-
           this.genres = value['with_genres'].split(',')
-
           this.total_pages = movies.total_pages
           this.curr_page = movies.page
-
+          this.query = movies.page
         })
       } else if (!value['with_genres']){ // якщо є тільки номер сторінки
         this.moviesService.getAllByParams(value['page']).subscribe(movies => {
@@ -71,6 +65,7 @@ export class MoviesListComponent implements OnInit {
           this.movies = movies.results
           this.query = value['page']
           this.curr_page = movies.page
+          this.total_pages = movies.total_pages
         })
       } else { //якщо є і жанр і урла
         this.moviesService.getAllByParams(value['page'], value['with_genres']).subscribe(movies => {
@@ -79,6 +74,7 @@ export class MoviesListComponent implements OnInit {
           this.query = value['page']
           this.genres = value['with_genres'].split(',')
           this.curr_page = movies.page
+          this.total_pages = movies.total_pages
         })
       }
     })
