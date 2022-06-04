@@ -17,6 +17,10 @@ export class MoviesListComponent implements OnInit {
 
   genres: string[] = []
 
+  curr_page: number = 1
+
+  total_pages: number
+
   constructor(private dataService: DataService, private moviesService: MoviesService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
@@ -43,37 +47,38 @@ export class MoviesListComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(value => {
 
       if (!value['page'] && !value['with_genres']) { //якщо в урлі нічого немає то робимо запит
-        this.moviesService.getAllByParams(1).subscribe(value => {
-          this.movies = value.results
+        this.moviesService.getAllByParams(1).subscribe(movies => {
+          this.movies = movies.results
+          this.total_pages = movies.total_pages
           console.log('нема ні жанру ні сторінки')
 
           this.query = 1
         })
-      } else if (!value['page']){ //якщо в урлі є тільки масив жанрів
+      } else if (!value['page']){ //якщо тільки масив жанрів
 
         this.moviesService.getAllByParams(1, value['with_genres']).subscribe(movies => {
           this.movies = movies.results
 
           this.genres = value['with_genres'].split(',')
 
-          console.log('є жанри');
+          this.total_pages = movies.total_pages
+          this.curr_page = movies.page
+
         })
       } else if (!value['with_genres']){ // якщо є тільки номер сторінки
         this.moviesService.getAllByParams(value['page']).subscribe(movies => {
+
           this.movies = movies.results
-
           this.query = value['page']
-
-          console.log('є номер');
+          this.curr_page = movies.page
         })
       } else { //якщо є і жанр і урла
         this.moviesService.getAllByParams(value['page'], value['with_genres']).subscribe(movies => {
-          this.movies = movies.results
 
+          this.movies = movies.results
           this.query = value['page']
           this.genres = value['with_genres'].split(',')
-
-          console.log('є жанр і урла');
+          this.curr_page = movies.page
         })
       }
     })

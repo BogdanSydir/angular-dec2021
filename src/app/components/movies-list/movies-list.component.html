@@ -6,9 +6,9 @@
     <app-movies-list-card *ngFor="let movie of movies" [movie]="movie"></app-movies-list-card>
   </div>
     <div class="pages">
-      <button (click)="next()" *ngIf="query != 500">next page</button>
+      <button (click)="next()" *ngIf="query < total_pages ">next page</button>
       <p>
-        Current page: {{query}}
+        Current page: {{curr_page}}
       </p>
       <button (click)="prev()" *ngIf="query != 1">prev page</button>
     </div>
