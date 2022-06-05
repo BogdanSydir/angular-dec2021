@@ -5,4 +5,5 @@
   <div>{{movie.original_title}}</div>
   <div>{{movieGenres}}</div>
   <div>Average vote: {{movie.vote_average}}</div>
+  <div><ngx-star-rating ngModel="{{rating(movie.vote_average)}}" [id]="movie.id.toString()" [disabled]="true"></ngx-star-rating></div>
 </div>

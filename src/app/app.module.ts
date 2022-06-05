@@ -10,9 +10,12 @@ import {MoviesListCardComponent} from './components/movies-list-card/movies-list
 import {GenreBadgeComponent} from './components/genre-badge/genre-badge.component';
 import {MainLayoutComponent} from './layouts/main-layout/main-layout.component';
 import {MainInterceptor} from "./main.interceptor";
-import { SingleGenreComponent } from './components/single-genre/single-genre.component';
-import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import { UserComponent } from './components/user/user.component';
+import {SingleGenreComponent} from './components/single-genre/single-genre.component';
+import {MovieDetailsComponent} from './components/movie-details/movie-details.component';
+import {UserComponent} from './components/user/user.component';
+import {NgxStarRatingModule} from "ngx-star-rating";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -29,13 +32,16 @@ import { UserComponent } from './components/user/user.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxStarRatingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     {
-      provide:HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS,
       multi: true,
-      useClass:MainInterceptor
+      useClass: MainInterceptor
     }
   ],
   bootstrap: [AppComponent]

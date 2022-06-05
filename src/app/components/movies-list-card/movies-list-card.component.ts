@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IMovie} from "../../interfaces";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-movies-list-card',
@@ -32,12 +33,26 @@ export class MoviesListCardComponent implements OnInit {
     {id: 10752, name: "War"},
   ]
 
+
+
+
+
   @Input()
   movie: IMovie
 
-  constructor() {
+  public form: FormGroup;
+
+  constructor(private fb: FormBuilder){
+    this.form = this.fb.group({
+      rating: [''],
+    })
   }
 
+
+  rating(rat: number): number {
+
+    return Math.round(rat / 2)
+  }
   ngOnInit(): void {
     // console.log(this.movie.original_title);
 
