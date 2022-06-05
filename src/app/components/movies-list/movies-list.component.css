@@ -2,8 +2,9 @@
   display: flex;
 }
 .genres{
-  background: aqua;
-  width: 15%;
+  background: #4b4b4b;
+  width: 10%;
+  color: #00fd67;
 }
 .movies{
   display: flex;
@@ -12,5 +13,7 @@
   width: 80%
 }
 .pages{
-  background: greenyellow;
+  background: #4b4b4b;
+  width: 10%;
+  color: #00fd67;
 }
